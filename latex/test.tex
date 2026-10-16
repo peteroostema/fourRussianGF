@@ -1,0 +1,394 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{soul}
+
+
+
+
+
+\usepackage{mathtools}
+\usepackage{tikz}
+
+\newcommand{\DoTikzmark}[1]{%
+  \tikz[remember picture] \coordinate[shift={(0,.7ex)}](#1);%
+}
+\newcommand{\colrow}[3][]{%
+  \tikz[overlay,remember picture, line width=10pt]
+    \draw[shorten >=-.1em, shorten <=-.1em, #1] (#2)--(#3);
+}
+
+
+
+
+
+  \begin{document}
+  This is my \emph{first} document prepared in \LaTeX.
+
+
+\begin{align*}
+    x+y-z & = 1\\
+    x-y+z & = 1\\
+    x+y+z & = 1
+  \end{align*}
+  can be written in matrix terms as
+  \begin{equation*}
+\begin{pmatrix} 
+ 1& 1&-1\\
+ 1&-1& 1\\
+  1&1&1
+    \end{pmatrix}
+    \begin{pmatrix}
+x\\ y\\ z
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+1\\ 1\\ 1
+    \end{pmatrix}.
+  \end{equation*}
+  Here, the matrix
+  $\begin{pmatrix}
+1& 1&-1\\ 1&-1& 1\\ 1&1&1
+  \end{pmatrix}$
+  is invertible.
+  
+  \hl{ldfkj}
+  A
+$\begin{pmatrix}
+4&4&3&2\\
+1&4&3&2\\
+3&2&3&4\\
+2&1&4&3
+\end{pmatrix}$
+\\
+\newline
+\newline
+  B
+$\begin{pmatrix}
+4&4&0&3\\
+3&0&2&0\\
+3&1&3&3\\
+3&4&0&2
+\end{pmatrix}$
+
+T, subtable 0
+$\begin{pmatrix}
+0&0&0&0\\
+4&4&0&3\\
+3&3&0&1\\
+2&2&0&4\\
+1&1&0&2
+\end{pmatrix}$
+
+  subtable 1
+$\begin{pmatrix}
+0&0&0&0\\
+3&0&2&0\\
+1&0&4&0\\
+4&0&1&0\\
+2&0&3&0
+\end{pmatrix}$
+
+   subtable 2
+$\begin{pmatrix}
+0&0&0&0\\
+3&1&3&3\\
+1&2&1&1\\
+4&3&4&4\\
+2&4&2&2
+\end{pmatrix}$
+
+   subtable 3
+$\begin{pmatrix}
+0&0&0&0\\
+3&4&0&2\\
+1&3&0&4\\
+4&2&0&1\\
+2&1&0&3
+\end{pmatrix}$
+
+  C
+$\begin{pmatrix}
+3&2&2&0\\
+1&0&2&1\\
+4&1&3&1\\
+2&4&4&4
+\end{pmatrix}$
+
+
+
+\[
+\begin{bmatrix*}[r]
+    3 & 1 & \DoTikzmark{num-3}{-}3 & 0 & {4}\DoTikzmark{num4} & 1 \\
+    0 & 1 & -1 & 2 & -2 & 5 \\
+   \DoTikzmark{num-2}{-}2 & -3 & 1  & 1 & 0&{1}\DoTikzmark{num1} \\
+\end{bmatrix*}
+\]
+\colrow[blue ,opacity=.5]{num-3}{num4}
+\colrow[green,opacity=.5]{num-2}{num1}
+\\
+\newline
+\newline
+  A
+$\begin{pmatrix}
+4&4&3&2\\
+1&4&3&2\\
+3&2&3&4\\
+\DoTikzmark{num-5}{2}&1&4&{3}\DoTikzmark{num6}
+\end{pmatrix}$
+\colrow[green ,opacity=.5]{num-5}{num6}
+\\
+\newline
+\newline
+T0
+$\begin{pmatrix}
+0&0&0&0\\
+4&4&0&3\\
+\DoTikzmark{num-5}{3}&3&0&{1}\DoTikzmark{num6}\\
+2&2&0&4\\
+1&1&0&2
+\end{pmatrix}$
+\colrow[green ,opacity=.5]{num-5}{num6}
+\\
+\newline
+\newline
+  T1
+$\begin{pmatrix}
+0&0&0&0\\
+\DoTikzmark{num-5}{3}&0&2&{0}\DoTikzmark{num6}\\
+1&0&4&0\\
+4&0&1&0\\
+2&0&3&0
+\end{pmatrix}$
+\colrow[green ,opacity=.5]{num-5}{num6}
+\\
+\newline
+\newline
+  T2
+$\begin{pmatrix}
+0&0&0&0\\
+3&1&3&3\\
+1&2&1&1\\
+4&3&4&4\\
+\DoTikzmark{num-5}{2}&4&2&{2}\DoTikzmark{num6}
+\end{pmatrix}$
+\colrow[green ,opacity=.5]{num-5}{num6}
+\\
+\newline
+\newline
+   T3
+$\begin{pmatrix}
+0&0&0&0\\
+3&4&0&2\\
+1&3&0&4\\
+\DoTikzmark{num-5}{4}&2&0&{1}\DoTikzmark{num6}\\
+2&1&0&3
+\end{pmatrix}$
+\colrow[green ,opacity=.5]{num-5}{num6}
+\\
+\newline
+\newline
+  \begin{equation*}
+\begin{pmatrix} 
+ 3&3&0&1
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+3&0&2&0
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+2&4&2&2
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+4&2&0&1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+2&4&4&4
+    \end{pmatrix}.
+  \end{equation*}
+  \\
+  \newline
+\newline
+   C
+$\begin{pmatrix}
+3&2&2&0\\
+1&0&2&1\\
+4&1&3&1\\
+\DoTikzmark{num-5}2&4&4&4\DoTikzmark{num6}
+\end{pmatrix}$
+\colrow[green ,opacity=.5]{num-5}{num6}
+
+
+GF2
+\\
+\newline
+\newline
+  A
+$\begin{pmatrix}
+1&1&0&1\\
+\DoTikzmark{num-5}{0}&{1}\DoTikzmark{num6}&\DoTikzmark{num-7}{1}&{1}\DoTikzmark{num8}\\
+0&0&0&0\\
+1&0&1&0
+\end{pmatrix}$
+\colrow[blue ,opacity=.4]{num-5}{num6}
+\colrow[red ,opacity=.5]{num-7}{num8}
+\\
+\newline
+\newline
+  B
+$\begin{pmatrix}
+0&1&1&1\\
+1&1&0&1\\
+1&0&1&1\\
+0&0&0&1
+\end{pmatrix}$
+\\
+\newline
+\newline
+T0
+$\begin{pmatrix}
+0&0&0&0\\
+\DoTikzmark{num-5}{0}&1&1&{1}\DoTikzmark{num6}\\
+1&1&0&1\\
+1&0&1&0
+\end{pmatrix}$
+\colrow[blue ,opacity=.4]{num-5}{num6}
+\\
+\newline
+\newline
+  T1
+$\begin{pmatrix}
+0&0&0&0\\
+1&0&1&1\\
+0&0&0&1\\
+\DoTikzmark{num-5}{1}&0&1&{0}\DoTikzmark{num6}
+\end{pmatrix}$
+\colrow[red ,opacity=.5]{num-5}{num6}
+\\
+\newline
+\newline
+
+   C
+$\begin{pmatrix}
+0&0&0&1\\
+\DoTikzmark{num-5}{1}&1&0&{1}\DoTikzmark{num6}\\
+0&0&0&0\\
+1&1&0&1
+\end{pmatrix}$
+\colrow[blue ,opacity=.3]{num-5}{num6}
+\colrow[red ,opacity=.4]{num-5}{num6}
+\\
+\newline
+\newline
+  B
+$\begin{pmatrix}
+\DoTikzmark{num-1}{0}&1&1&{1}\DoTikzmark{num2}\\
+\DoTikzmark{num-3}{1}&1&0&{1}\DoTikzmark{num4}\\
+\DoTikzmark{num-5}{1}&0&1&{1}\DoTikzmark{num6}\\
+\DoTikzmark{num-7}{0}&0&0&{1}\DoTikzmark{num8}
+\end{pmatrix}$
+\colrow[red ,opacity=.5]{num-1}{num2}
+\colrow[blue ,opacity=.4]{num-3}{num4}
+\colrow[green ,opacity=.5]{num-5}{num6}
+\colrow[magenta ,opacity=.5]{num-7}{num8}
+
+T0
+$\begin{pmatrix}
+0&0&0&0\\
+\DoTikzmark{num-1}{0}&1&1&{1}\DoTikzmark{num2}\\
+\DoTikzmark{num-3}{1}&1&0&{1}\DoTikzmark{num4}\\
+\DoTikzmark{num-9}{1}&0&1&{0}\DoTikzmark{num10}
+\end{pmatrix}$
+\colrow[red ,opacity=.5]{num-1}{num2}
+\colrow[blue ,opacity=.4]{num-3}{num4}
+\colrow[red ,opacity=.5]{num-9}{num10}
+\colrow[blue ,opacity=.4]{num-9}{num10}
+\\
+\newline
+\newline
+  T1
+$\begin{pmatrix}
+0&0&0&0\\
+\DoTikzmark{num-5}{1}&0&1&{1}\DoTikzmark{num6}\\
+\DoTikzmark{num-7}{0}&0&0&{1}\DoTikzmark{num8}\\
+\DoTikzmark{num-9}{1}&0&1&{0}\DoTikzmark{num10}
+\end{pmatrix}$
+\colrow[green ,opacity=.5]{num-5}{num6}
+\colrow[magenta ,opacity=.5]{num-7}{num8}
+\colrow[green ,opacity=.5]{num-9}{num10}
+\colrow[magenta ,opacity=.5]{num-9}{num10}
+\\
+\newline
+\newline
+
+  T1
+$\begin{pmatrix}
+0&0&0&0\\
+\DoTikzmark{num-5}{0}&1&0&{0}\DoTikzmark{num6}\\
+\DoTikzmark{num-7}{0}&0&0&{1}\DoTikzmark{num8}\\
+\DoTikzmark{num-9}{1}&0&1&{0}\DoTikzmark{num10}
+\end{pmatrix}$
+\colrow[green ,opacity=.5]{num-5}{num6}
+\colrow[magenta ,opacity=.5]{num-7}{num8}
+\colrow[red ,opacity=.5]{num-1}{num2}
+\colrow[blue ,opacity=.4]{num-3}{num4}
+\\
+\newline
+\newline
+
+t = 2
+$\begin{pmatrix}
+0&0&0&0\\
+4&1&1&3\\
+3&2&2&1\\
+2&3&3&4\\
+1&4&4&2\\
+4&0&3&3\\
+3&1&4&2\\
+2&2&0&4\\
+1&3&1&2\\
+0&4&2&0\\
+3&0&1&1\\
+2&1&2&4\\
+1&2&3&2\\
+0&3&4&0\\
+4&4&0&3\\
+2&0&4&4\\
+1&1&0&2\\
+0&2&1&0\\
+4&3&2&3\\
+3&4&3&1\\
+1&0&2&2\\
+0&1&3&0\\
+4&2&4&3\\
+3&3&0&1\\
+2&4&1&4
+\end{pmatrix}$
+
+
+
+
+t = 1
+$\begin{pmatrix}
+0&0&0&0\\
+4&0&3&3\\
+3&0&1&1\\
+2&0&4&4\\
+1&0&2&2
+\end{pmatrix}$
+
+$\begin{pmatrix}
+0&0&0&0\\
+4&1&1&3\\
+3&2&2&1\\
+2&3&3&4\\
+1&4&4&2
+\end{pmatrix}$
+
+  \end{document}
+
+
+

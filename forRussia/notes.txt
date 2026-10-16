@@ -1,0 +1,9 @@
+no great difference in performance between nothing and static inline of ReadBits
+	extern inline seemed to slow down
+all times falling in the same range for extern/static inline createTable, on larger
+	matrixes static inline similar to nothing extern slower
+column major A is a few seconds faster but haven’t run it multiple times
+
+
+column major T results in faster for 1024x1024 to approaching 8192x8192, two times
+	slower for 16384x16384
